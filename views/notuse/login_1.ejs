@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>  
+        <section class="center-wr" style="margin-top:150px;">
+        <div class="form">
+            <form action="/process_login" method="post">
+                <h2>Login</h2>
+                <% if(locals.error) {%>
+                 <div class="alert alert-danger alertmsg" role="alert"><%= error %></div>
+                <%}%>                
+                <div class="input-field">
+                    <input type="text" name="username" id="username" placeholder="Enter Username">
+                </div>
+                <div class="input-field">
+                    <input type="password" name="password" id="password" placeholder="Enter Password">
+                </div>
+                <input type="submit" value="LogIn">
+                <a style="float:right; color:#1a14ba" href="/register">Register New Account</a>
+            </form>
+        </div>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+ <nav class="menu-wrp">
+  <ul class="menu-list sidebar">
+    <li><a href="javascript:function() { return false; }">Home</a>
+        <ul class="sub-menu">
+           <% for(var headermenus of headermenu) {  %>
+          <li><a href="/<%= headermenus.urlslug %>"><% if(headermenus) { %><%= headermenus.title.replace(/\w/, c => c.toUpperCase()) %><% } %></a></li>
+          <% } %>
+        </ul>
+    </li>
+    <li><a href="javascript:function() { return false; }">Setting</a>
+      <ul class="sub-menu">
+           <% for(var headermenus of headermenu) {  %>
+          <li><a href="/<%= headermenus.urlslug %>"><% if(headermenus) { %><%= headermenus.title.replace(/\w/, c => c.toUpperCase()) %><% } %></a></li>
+          <% } %>
+        </ul>
+    </li> 
+    <li><a href="javascript:function() { return false; }">About Us</a>
+        <ul class="sub-menu">
+          <li><a href="/aboutus" class="active">About us</a></li>
+       <!--    <li><a href="/about-service">About service</a></li> -->
+       <!--    <li><a href="/about-client">About Client</a></li> -->
+        </ul>
+    </li>
+    <li><a href="/portfolio">Port Folio</a></li>
+   <!--  <li><a href="/joinus">Join Us</a></li>  -->
+  </ul>
+</nav>

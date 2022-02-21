@@ -1,0 +1,41 @@
+<%- include('./header') %>
+<% if(mag) { %> <%= mag %><% } %>
+
+<section class="center-wr" style="margin-top:150px;">
+    <span><a href="/achievementform" style="float:right"><button>Add Achievement</button></a></sapn>
+    <span><a href="/achievementitemform" style="float:right;margin-right:10px"><button>Add Item</button></a></span>
+    <br>
+    <h1><%= pagedata.title %></h1>
+    <br>
+    <h3><%= pagedata.name %></h3>
+    <br>
+    <%= pagedata.description %>
+<br>
+<br>
+<h1>Achivement Items</h1>
+<br>
+<table border="1" cellspacing="5" cellpadding="5">
+<tr>
+<th>Title</th>
+<th>Name</th>
+<th>Edit</th>
+<th>Remove</th>
+</tr>
+<% for(var person of achievementitem) { %>
+   <tr><td> 
+      <%= person.title %>
+      </td>
+      <td> 
+      <%= person.name %>
+      </td>
+       <td> 
+      <a href="/achivementitemedit/<%= person._id %>">Edit</a>
+      </td> 
+      <td> 
+      <a href="/achivementitemremove/<%= person._id %>" onclick="return confirm('Are you sure you want to delete this item')">X</a>
+      </td>
+      </tr>
+<% } %>
+</table>
+
+    </section>

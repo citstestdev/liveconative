@@ -1,0 +1,31 @@
+<%- include('../../header') %>
+<section class="center-wr" style="margin-top:77px;">
+<% if(locals.error) {%>
+    <div class="alert alert-danger" id="alertmsg" role="alert"><%= error %></div>
+<%}%>
+<div class="row page-wraper">
+  <div class="col-md-12 full-content-wraper">
+    <div class="title-header"><h1 class="cmn-heading"><%= title.replace(/\w/, c => c.toUpperCase()) %></h1></div>
+    <div class="col-md-2 sidebar-menu">
+    <%- include('../../sidebar_common') %>
+    </div>
+     <div class="col-md-6 content-wraper"> 
+    <form method="POST" action="/social/<%= updatearr._id %> " enctype="multipart/form-data">
+        <label>Title:<input type="text" name="title" value="<% if(updatearr.title){ %> <%= updatearr.title %> <% } %>" required></label>
+        <br>
+        <label>Url:<input type="text" name="socialurl" value="<% if(updatearr.socialurl){ %> <%= updatearr.socialurl %> <% } %>" required></label>
+        <br>
+        <label>Description:<br><textarea name="description"><% if(updatearr.description){ %> <%= updatearr.description %> <% } %></textarea></label>
+        <br>
+        <img src="/<%= updatearr.image %>"  width:"70px" height="70px"/>
+        <input type="hidden" name="oldimage" value="<%= updatearr.image %>">
+        <input type="file" name="userPhoto" id="" placeholder=""  style="border:none;width:100%;" accept="image/*">
+        <br>
+        <input type="submit" value="Update">
+    </form>
+  </div>
+     <div class="col-md-5">
+      </div>
+  </div>
+</div>     
+</section>

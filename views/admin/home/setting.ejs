@@ -1,0 +1,50 @@
+<%- include('../../header') %>
+<section class="center-wr" style="margin-top:77px;">
+<div class="row page-wraper">
+  <div class="col-md-12 full-content-wraper">
+    <div class="title-header"><h1 class="cmn-heading"><%= title.replace(/\w/, c => c.toUpperCase()) %></h1></div>
+    <% if(msg) { %> <div style="background-color:#cfe7c0"><span class="cmn-message"><%= msg %></span></div><% } %>
+    <div class="col-md-2 sidebar-menu">
+    <%- include('../../sidebar_common') %>
+    </div>
+    <div class="col-md-6 content-wraper"> 
+
+    <form method="POST" action="/setting" enctype="multipart/form-data">
+        <label>Name:<input type="text" name="clientname" <% if(opt.name) { %> value="<%= opt.name %>" <% } %> required></label>
+        <br>
+        <label>Email:<input type="text" name="clientemail" <% if(opt.email) { %> value="<%= opt.email %>" <% } %> ></label>
+        <br>
+        <label>Description:<br><textarea name="description"><% if(opt.description) {%><%= opt.description %><%} %></textarea></label>
+        <br>
+        <label>Address:<br><textarea name="address"><% if(opt.address) {%><%= opt.address %><%} %></textarea></label>
+        <br>
+         <label>Phone:<input type="text" name="phone" <% if(opt.phone) { %> value="<%= opt.phone %>" <% } %> ></label>
+        <br>
+         <label>Alternate Phone:<input type="text" name="alternatephone" <% if(opt.alternatephone) { %> value="<%= opt.alternatephone %>" <% } %> ></label>
+        <br>
+         <label>Alternate Email:<input type="text" name="alternateemail" <% if(opt.alternateemail) { %> value="<%= opt.alternateemail %>" <% } %> ></label>
+        <br>
+         <% if(opt.image) { %><img src="/<%= opt.image %>" style="width:155px;height: 100px;"/>  <% } %>
+         <input type="hidden" name="oldimage" <% if(opt.image) { %> value="<%= opt.image %>" <% } %>  >
+        <input type="file" name="userPhoto" id="" placeholder=""  style="border:none;width:100%;">
+        <br>
+        <label>Footer:<input type="text" name="footer" <% if(opt.footer) { %> value="<%= opt.footer %>" <% } %>  ></label>
+        <br>
+        <label>Header google analytics:<textarea name="header_analytics"><% if(opt.header_analytics) {%><%= opt.header_analytics %><%} %></textarea></label>
+        <br>
+        <label>Footer google analytics:<textarea name="footer_analytics"><% if(opt.footer_analytics) {%><%= opt.footer_analytics %><%} %></textarea></label>
+        <br>
+        <label>Query:<input type="text" name="query" <% if(opt.query) { %> value="<%= opt.query %>" <% } %> required></label>
+        <br>
+        <label>Button:<input type="text" name="button" <% if(opt.button) { %> value="<%= opt.button %>" <% } %> required></label>
+        <br>
+        <br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+ </div>
+        <div class="col-md-3">
+        </div>
+     </div>
+   </div>
+    </section>

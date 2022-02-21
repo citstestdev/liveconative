@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>                
+        <title>Atlant - Responsive Bootstrap Admin Template</title>            
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />        
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />              
+        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>                                         
+    </head>
+    <body>
+        <div class="page-container">
+           <div class="page-content">
+                <div class="page-title">                    
+                    <h2><span class="fa fa-arrow-circle-o-left"></span> Alerts & Popups</h2>
+                </div>
+                <div class="page-content-wrap">                                
+                    <div class="row">
+                       <div class="col-md-6">
+                     <!-- START NOTY PLUGIN -->
+                           <div class="panel panel-default">                                
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Notifications</h3>                                    
+                                    <ul class="panel-controls">
+                                        <li>
+                                            <button class="btn btn-default pull-right" onClick="$.noty.closeAll();">Close all</button>
+                                        </li>                                
+                                    </ul>
+                                </div>                                
+                                <div class="panel-body">                                                           
+                                    <p>The notifications can be positioned at the: top - topLeft - topCenter - topRight - center - centerLeft - centerRight - bottom - bottomLeft - bottomCenter - bottomRight</p>                                                                            
+                                    <div class="form-group">                                        
+                                        <button class="btn btn-default" onClick="noty({text: 'Left top notify', layout: 'topLeft'});">Left top</button> 
+                                        <button class="btn btn-default" onClick="noty({text: 'Center top notify', layout: 'topCenter'});">Center top</button> 
+                                        <button class="btn btn-default" onClick="noty({text: 'Right top notify', layout: 'topRight'});">Right top</button>                                         
+                                    </div>
+                                    <h4>States</h4>
+                                    <p>Noty is a jQuery plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog. Each notification is added to a queue.</p>
+                                    <div class="form-group">                                            
+                                        <button class="btn btn-success" onClick="noty({text: 'Successful action', layout: 'topRight', type: 'success'});">Success</button> 
+                                        <button class="btn btn-danger" onClick="noty({text: 'There was an error', layout: 'topRight', type: 'error'});">Error</button> 
+                                        <button class="btn btn-warning" onClick="noty({text: 'Best check yo self', layout: 'topRight', type: 'warning'});">Warning</button> 
+                                        <button class="btn btn-info" onClick="noty({text: 'This alert needs your attention', layout: 'topRight', type: 'information'});">Warning</button>
+                                        <button class="btn btn-primary" onClick="notyConfirm();">Confirm</button>                                                                                   
+                                    </div>                                                                                
+                                </div>
+                            </div>                       
+                       </div>
+                    </div>
+                </div>                                                  
+            </div>    
+        </div>
+        
+       
+            <!-- START PLUGINS -->
+            <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+            <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
+            <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>                 
+            <!--<script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
+            <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script> -->       
+            <script type='text/javascript' src='js/plugins/noty/jquery.noty.js'></script>
+            <script type='text/javascript' src='js/plugins/noty/layouts/topCenter.js'></script>
+            <script type='text/javascript' src='js/plugins/noty/layouts/topLeft.js'></script>
+            <script type='text/javascript' src='js/plugins/noty/layouts/topRight.js'></script>            
+            <script type='text/javascript' src='js/plugins/noty/themes/default.js'></script>
+            <script type="text/javascript"> /*This is for the confirm button*/                                           
+                function notyConfirm(){
+                    noty({
+                        text: 'Do you want to continue?',
+                        layout: 'topRight',
+                        buttons: [
+                                {addClass: 'btn btn-success btn-clean', text: 'Ok', onClick: function($noty) {
+                                    $noty.close();
+                                    noty({text: 'You clicked "Ok" button', layout: 'topRight', type: 'success'});
+                                }
+                                },
+                                {addClass: 'btn btn-danger btn-clean', text: 'Cancel', onClick: function($noty) {
+                                    $noty.close();
+                                    noty({text: 'You clicked "Cancel" button', layout: 'topRight', type: 'error'});
+                                    }
+                                }
+                            ]
+                    })                                                    
+                }                                            
+            </script>
+            <script type="text/javascript" src="js/settings.js"></script>           
+            <script type="text/javascript" src="js/plugins.js"></script>        
+            <script type="text/javascript" src="js/actions.js"></script>   
+            <!-- END PAGE PLUGINS -->             
+    </body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+<%- include('./header') %>
+<% if(mag) { %> <%= mag %><% } %>
+
+<section class="center-wr" style="margin-top:150px;">
+
+    <form method="POST" action="/addbestwork" enctype="multipart/form-data">
+        <label>Name:<input type="text" name="clientname" required></label>
+        <br>
+        <label>Description:<br><textarea name="description"></textarea></label>
+        <br>
+         <input type="hidden" name="oldimage">
+        <input type="file" name="userPhoto" id="" placeholder=""  style="border:none;width:100%;">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    </section>

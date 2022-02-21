@@ -1,0 +1,58 @@
+<style>
+td,th {
+    padding: 10px;
+}
+</style>
+<%- include('../../header') %>
+<section class="center-wr" style="margin-top:77px;">
+<div class="row page-wraper">
+  <div class="col-md-12 full-content-wraper">
+    <div class="title-header"><h1 class="cmn-heading"><%= title.replace(/\w/, c => c.toUpperCase()) %></h1><a  style="float:right" href="/portfolio"><button>Back</button></a></div>
+         <% if(msg) { %> <div style="background-color:#cfe7c0"><span class="cmn-message"><%= msg %></span></div><% } %>
+    <div class="col-md-2 sidebar-menu">
+    <%- include('../../sidebar_common') %>
+    </div>
+     <div class="col-md-5 content-wraper"> 
+     
+        <form method="POST" action="/addportfolioitem" enctype="multipart/form-data">
+
+          <input type="hidden" value="<% if(pagedata) { %><%= pagedata._id %><% } %>" name="portfolioid" />
+    
+          <input type="file" name="userPhoto" id="" style="border:none;width:100%;" accept="image/*" multiple>
+          <br>
+          <input type="submit" value="Submit">
+        </form>
+
+     </div>
+     <div class="col-md-4 form-wraper">
+     
+     <table border="2" cellspacing="5" cellpadding="5">
+      <tr>
+      <th>Image</th>
+      <th>Delete</th>
+      </tr>
+      <% 
+      if(portfolioitem.length > 0){
+           for(var item of portfolioitem) { %>
+             <tr>
+                <td> 
+                  <img src="<% if (portfolioitem) { %><%= item.url %><% } %>"  width="100px" height="100px"/>
+                </td> 
+                <td> 
+                <a href="/pitemremove/<%= pagedata._id %>/<%= item._id %>" title="X" class="delete" onclick="return confirm('Are you sure you want to delete this item')">X</a>
+                </td>
+                </tr>
+          <% }
+          }else{
+          %>
+          <tr><td style="color:#ff0000" colspan="2"><%= 'Not Found Data' %></td></tr>
+          <% 
+          }
+          %>
+      </table>
+
+     </div>
+  </div>
+</div>
+
+</section>

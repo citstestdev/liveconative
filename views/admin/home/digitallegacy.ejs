@@ -1,0 +1,35 @@
+<style>
+td,th {
+    padding: 10px;
+}
+</style>
+<%- include('../../header') %>
+<% if(msg) { %> <%= msg %><% } %>
+<section class="center-wr" style="margin-top:77px;">
+<div class="row page-wraper">
+  <div class="col-md-12 full-content-wraper">
+    <div class="title-header"><h1 class="cmn-heading"><%= title.replace(/\w/, c => c.toUpperCase()) %></h1></div>
+    <div class="col-md-2 sidebar-menu">
+    <%- include('../../sidebar_common') %>
+    </div>
+     <div class="col-md-6 content-wraper"> 
+    <form method="POST" action="/adddigital" enctype="multipart/form-data">
+        <label>Name:<input type="text" name="name" required></label>
+        <br>
+        <label>Title:<input type="text" name="title" required></label>
+        <br>
+        <br>
+        <label>Experience:<input type="text" name="experience" required></label>
+        <br>
+        <label>Description:<br><textarea name="description" required></textarea></label>
+        <br>
+         <input type="hidden" name="oldimage">
+        <input type="file" name="userPhoto" id="" placeholder=""  style="border:none;width:100%;" accept="image/*" multiple>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+      <div class="col-md-5">
+      </div>
+  </div>
+</div>  
+</section>

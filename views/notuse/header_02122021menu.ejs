@@ -1,0 +1,94 @@
+<style>
+ul
+{
+    font-family: Arial, Verdana;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul li
+{
+    display: block;
+    position: relative;
+    float: left;
+}
+
+li ul
+{
+    display: none;
+}
+
+ul li a 
+{
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    border-top: 1px solid #ffffff;
+    padding: 5px 15px 5px 15px;
+    background: #2C5463;
+    margin-left: 1px;
+    white-space: nowrap;
+}
+
+ul li a:hover 
+{
+    background: #617F8A;
+}
+li:hover ul 
+{
+    display: block;
+    position: absolute;
+}
+
+li:hover li
+{
+    float: none;
+    font-size: 11px;
+}
+
+li:hover a 
+{
+    background: #617F8A;
+}
+
+li:hover li a:hover 
+{
+    background: #95A9B1;
+}
+
+.sub-menu li:hover a {
+    background: #617F8A;
+    width: 150px;
+}
+.menu-list li a {
+    color: #ffffff!important;
+}
+</style>
+<header>
+  <div class="center-wr">
+    <div class="clearfix">
+      <div class="site-logo left">
+        <a href="/home">
+          <img src="/<%= opt.image %>" alt="Logo">
+        </a>
+      </div>
+      <div class="site-menu right">
+       <button><a href="/logout">Logout</a></button>
+      
+        <nav class="menu-wrp">
+          <ul class="menu-list">
+            <li><a href="javascript:function() { return false; }">Home</a>
+                <ul class="sub-menu">
+                   <% for(var headermenus of headermenu) {  %>
+                  <li><a href="/<%= headermenus.title %>"><%= headermenus.title.replace(/\w/, c => c.toUpperCase()) %></a></li>
+                  <% } %>
+                </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

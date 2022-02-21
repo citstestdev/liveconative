@@ -1,0 +1,28 @@
+<%- include('../../header') %>
+<% if(msg) { %> <%= msg %><% } %>
+<section class="center-wr" style="margin-top:77px;">
+<div class="row page-wraper">
+  <div class="col-md-12 full-content-wraper">
+    <div class="title-header"><h1 class="cmn-heading"><%= title.replace(/\w/, c => c.toUpperCase()) %></h1></div>
+    <div class="col-md-2  sidebar-menu">
+    <%- include('../../sidebar_common') %>
+    </div>
+     <div class="col-md-7 content-wraper"> 
+    <h1><%= title %></h1>
+    <form method="POST" action="<% if(updatearr._id) { %> /clientprojectupdate/<%= updatearr._id %>  <% }else{ %> /clientprojectitem <% } %>" enctype="multipart/form-data">
+        <label>Name:<input type="text" name="name" <% if(updatearr.name) { %> value="<%= updatearr.name %>" <% } %> required></label>
+        <br>
+        <label>Number Of Project:<input type="text" name="num" <% if(updatearr.num) { %> value="<%= updatearr.num %> " <% } %> required></label>
+        <br>
+        <input type="hidden" name="oldimage" <% if(updatearr.image) { %> value="<%= updatearr.image %> " <% } %>>
+        <input type="file" name="userPhoto" id="" placeholder=""  style="border:none;width:100%;" accept="image/*">
+        <br>
+        <br>
+        <input type="submit" value="<% if(updatearr._id) { %> update <%}else {%> Submit <% } %>">
+    </form>
+    </div>
+     <div class="col-md-2">
+      </div>
+  </div>
+</div>  
+</section>

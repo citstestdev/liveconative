@@ -1,0 +1,102 @@
+<%- include('../../header') %>
+<style>
+td,th {
+  padding: 11px;
+}
+</style>
+<section class="center-wr" style="margin-top:77px;">
+<div class="row page-wraper">
+  <div class="col-md-12 full-content-wraper">
+    <div class="title-header"><h1 class="cmn-heading"><%= title.replace(/\w/, c => c.toUpperCase()) %></h1></div>
+        <% if(msg) { %> <div style="background-color:#cfe7c0"><span class="cmn-message"><%= msg %></span></div><% } %>
+    <div class="col-md-2 sidebar-menu">
+    <%- include('../../sidebar_common') %>
+    </div>
+     <div class="col-md-4 content-wraper"> 
+
+      <form method="POST" action="/menu">
+              <label>Display Title:<input type="text" name="title"  required></label>
+              <br>
+              <label>Url Slug:<input type="text" name="urlslug"  required></label>
+              <br>
+              <label>Url:<input type="text" name="menurl" required></label>
+              <br>
+              <label>Description:<br><textarea name="description"></textarea></label>
+              <br>
+              <label>Index:<input type="number" name="index" required></label>
+              <br>
+              <br>
+              <label>Dispaly: 
+              <select id="volume" name="displaymenu">
+                <option value="f">f</option>
+                <option value="b">b</option>
+                <option value="fb">fb</option>
+              </select>
+              </label>
+              <br>
+                <br>
+              <label>Parent Menu: 
+              <select id="volume" name="parentmenu">
+                <option value="1">Home</option>
+                <option value="2">Setting</option>
+                <option value="3">About Us</option>
+              </select>
+              </label>
+        <br>
+        <br>
+              <input type="submit" value="Submit">
+      </form>
+    </div>
+    <div class="col-md-5 form-wraper">        
+               
+        <table border="2" cellspacing="5" cellpadding="5">
+        <tr>
+        <th>ID</th>
+        <th>Slug</th>
+        <th>Display Name</th>
+        <th>Display</th>
+        <th>Index</th>
+        <th>Url</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        </tr>
+        <% for(var person of pagedata) { %>
+           <tr><td> 
+              <%= person._id %>
+              </td>
+              <td> 
+              <%= person.urlslug %>
+              </td>
+              <td> 
+              <%= person.title %>
+              </td>
+              <td> 
+              <% if(person.displaymenu === 'f'){ %>
+                 Client menu
+              <% } if(person.displaymenu === 'b') { %> 
+                 Admin menu
+              <% } if(person.displaymenu === 'fb') { %>   
+               Both
+               <% } %>
+              </td>
+              <td> 
+              <%= person.index %>
+              </td>
+              <td> 
+              <%= person.url %>
+              </td>
+              <td> 
+              <a href="/menuupdate/<%= person._id %>">Edit</a>
+              </td> 
+              <td> 
+              <a href="/menuremove/<%= person._id %>" onclick="return confirm('Are you sure you want to delete this item')">X</a>
+              </td>
+              </tr>
+        <% } %>
+        </table>
+    
+     </div>
+  </div>
+</div>  
+       
+</section>

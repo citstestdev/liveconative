@@ -1,0 +1,51 @@
+<%- include('../../header') %>
+
+<section class="center-wr" style="margin-top:77px;">
+<div class="row page-wraper">
+  <div class="col-md-12 full-content-wraper">
+    <div class="title-header"><h1 class="cmn-heading"><%= title.replace(/\w/, c => c.toUpperCase()) %></h1></div>
+        <% if(msg) { %> <div style="background-color:#cfe7c0"><span class="cmn-message"><%= msg %></span></div><% } %>
+    <div class="col-md-2 sidebar-menu">
+    <%- include('../../sidebar_common') %>
+    </div>
+     <div class="col-md-6 content-wraper"> 
+
+    <form method="post" action="/menu/<%= updatearr._id %> ">
+    <input type="hidden" name="_method" value="PATCH" /> 
+        <label>Display Title:<input type="text" name="title" value="<% if(updatearr.title){ %> <%= updatearr.title %> <% } %>" required></label>
+        <br>
+        <label>Url Slug:<input type="text" name="urlslug" value="<% if(updatearr.urlslug){ %> <%= updatearr.urlslug %> <% } %>" required></label>
+        <br>
+        <label>Url:<input type="text" name="menurl" value="<% if(updatearr.url){ %> <%= updatearr.url %> <% } %>" required></label>
+        <br>
+        <label>Description:<br><textarea name="description"><% if(updatearr.description){ %> <%= updatearr.description %> <% } %></textarea></label>
+        <br>
+        <label>Index:<input type="text" name="index" value="<% if(updatearr.index){ %> <%= updatearr.index %> <% } %>"></label>
+        <br>
+        <br>
+        <label>Dispaly: 
+        <select id="volume" name="displaymenu">
+          <option value="f" <%= updatearr.displaymenu == 'f' ? 'selected' : ''%>>f</option>
+          <option value="b" <%= updatearr.displaymenu == 'b' ? 'selected' : ''%>>b</option>
+          <option value="fb" <%= updatearr.displaymenu == 'fb' ? 'selected' : ''%>>fb</option>
+        </select>
+        </label>
+        <br>
+        <br>
+          <label>Parent Menu: 
+          <select id="volume" name="parentmenu">
+            <option value="1" <%= updatearr.displaymenu == '1' ? 'selected' : ''%>>Home</option>
+            <option value="2" <%= updatearr.displaymenu == '2' ? 'selected' : ''%>>Setting</option>
+            <option value="3" <%= updatearr.displaymenu == '3' ? 'selected' : ''%>>About Us</option>
+          </select>
+          </label>
+        <br>
+        <br>
+        <input type="submit" value="Update">
+    </form>
+    </div>
+         <div class="col-md-3">
+      </div>
+  </div>
+</div>  
+</section>

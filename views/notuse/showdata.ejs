@@ -1,0 +1,13 @@
+<% for(var person of people) { %>
+
+    Name : <%= person._id %>
+    <br/>
+    Name : <%= person.name %>
+    <br/>
+    Email : <%= person.email %>
+    <br/>
+    Image : <% if(person.image) { %><img src="<%= fullUrl %>/<%= person.image %>"/>  <% } %>
+    <br/>
+    Edit : <a href="/updatedata/<%= person._id %>">Edit</a>
+    <br/>
+<% } %>

@@ -1,0 +1,60 @@
+<style>
+td,th {
+    padding: 10px;
+}
+.cmn-btn{
+  margin-left: 0%;
+}
+</style>
+<%- include('../../header') %>
+<% if(msg) { %> <%= msg %><% } %>
+<section class="center-wr" style="margin-top:77px;">
+<div class="row page-wraper">
+  <div class="col-md-12 full-content-wraper">
+    <div class="title-header"><h1 class="cmn-heading"><%= title.replace(/\w/, c => c.toUpperCase()) %></h1></div>
+        <span><button class="cmn-btn"><a href="/clientform" style="float:right">Add Project</a></button></sapn>
+    <span><button class="cmn-btn"><a href="/clientprojectform" style="float:right;">Add Item</a></button></span>
+     <span><button class="cmn-btn"><a href="/csliderform" style="float:right;">Add Slider</a></button></span>
+    <div class="col-md-2  sidebar-menu">
+    <%- include('../../sidebar_common') %>
+    </div>
+     <div class="col-md-7 content-wraper"> 
+    <h1><% if(pagedata) { %><%= pagedata.title %><% } %></h1>
+    <br>
+    <h3><% if(pagedata) { %><%= pagedata.name %><% } %></h3>
+    <br>
+    <% if(pagedata) { %><%= pagedata.description %><% } %>
+
+<hr>
+<h1>Client Project Items</h1>
+<br>
+<table border="2" cellspacing="5" cellpadding="5" style="width: 100%;">
+<tr>
+<th>Title</th>
+<th>Number Of Projects</th>
+<th>Edit</th>
+<th>Remove</th>
+</tr>
+<% for(var item of expertiseitem) { %>
+   <tr><td> 
+      <%= item.name %>
+      </td>
+      <td> 
+      <%= item.num %>
+      </td>
+       <td> 
+      <a href="/clientprojectedit/<%= item._id %>">Edit</a>
+      </td> 
+      <td> 
+      <a href="/clientprojectremove/<%= item._id %>" onclick="return confirm('Are you sure you want to delete this item')">X</a>
+      </td>
+      </tr>
+<% } %>
+</table>
+</div>
+<div class="col-md-2">
+
+</div>
+  </div>
+</div> 
+    </section>

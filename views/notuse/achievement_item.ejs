@@ -1,0 +1,13 @@
+<%- include('./header') %>
+<% if(mag) { %> <%= mag %><% } %>
+
+<section class="center-wr" style="margin-top:150px;">
+    <h1><%= title %></h1>
+    <form method="POST" action="<% if(updatearr._id) { %> /achivementitemupdate/<%= updatearr._id %>  <% }else{ %> /achievementitem <% } %>">
+        <label>Number Of Item:<input type="text" name="numofitem" <% if(updatearr.title) { %> value="<%= updatearr.title %> " <% } %> required></label>
+        <br>
+        <label>Name:<input type="text" name="name" <% if(updatearr.name) { %> value="<%= updatearr.name %>" <% } %> required></label>
+        <br>
+        <input type="submit" value="<% if(updatearr._id) { %> update <%}else {%> Submit <% } %>">
+    </form>
+</section>

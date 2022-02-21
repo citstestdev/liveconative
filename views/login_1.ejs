@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Login</title>
+        <style>
+            .container.login_from {
+                width: 500px;
+                background-color: #ffffff;
+                padding: 4%;
+                margin-left: 38%;
+                border-radius: 30px;
+            }
+            .container.login_from input{
+               margin: 0px 0px 15px 0px;
+            }
+        </style>
+    </head>
+    <body>  
+        <div class="container login_from" style="margin-top:150px;">
+        <div class="form">
+            <form action="/process_login" method="post">
+                <img src="/uploads/2022-02-02T12:30:14.373Zconative-logo.svg"/>
+                <h2>Login</h2>
+                <% if(locals.error) {%>
+                 <div class="alert alert-danger alertmsg" role="alert"><%= error %></div>
+                <%}%>                
+                <div class="input-field">
+                    <input type="text" name="username" id="username" placeholder="Enter Username"/>
+                </div>
+                <div class="input-field">
+                    <input type="password" name="password" id="password" placeholder="Enter Password">
+                </div>
+                <input type="submit" value="LogIn">
+                <a style="float:right; color:#1a14ba" href="/register">Register New Account</a>
+            </form>
+        </div>
+        </div>
+    </body>
+</html>

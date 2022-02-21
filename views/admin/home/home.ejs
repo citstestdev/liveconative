@@ -1,0 +1,40 @@
+ <%- include('../../header') %>
+<style>
+td,th {
+    padding: 10px;
+}
+</style>     
+<section class="center-wr" style="margin-top:77px;">
+ 
+ <div class="row page-wraper">
+  <div class="col-md-12 full-content-wraper">
+    <div class="title-header"><h1 class="cmn-heading"><% if (title) { %><%= title.replace(/\w/, c => c.toUpperCase()) %><% } %></h1></div>
+     <% if(msg) { %> <div  class="alert alert-success" id="alertmsg" ><span class="cmn-message"><%= msg %></span></div><% } %>
+    <div class="col-md-2 sidebar-menu">
+    <%- include('../../sidebar_common') %>
+    </div>
+     <div class="col-md-4 content-wraper"> 
+          
+    <h3><% if (pagedata) { %><%= pagedata.title %> <% } %></h3>
+    
+    <br>
+    <% if (pagedata) { %><%= pagedata.description %><% } %>
+</div>
+   <div class="col-md-5 content-wraper"> 
+    <form method="POST" action="/home" enctype="multipart/form-data">
+        <label>Name:<input type="text" name="name" className="form-control" required></label>
+        <br>
+        <label>Title:<input type="text" name="title" required></label>
+        <br>
+        <label>Description:<br><textarea name="description"></textarea></label>
+        <br>
+         <input type="hidden" name="oldimage">
+        <input type="file" name="userPhoto" id="" placeholder=""  style="border:none;width:100%;" accept="image/*">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    
+      </div>
+  </div>
+</div>  
+</section>

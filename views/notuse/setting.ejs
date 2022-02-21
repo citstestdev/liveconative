@@ -1,0 +1,25 @@
+<%- include('./header') %>
+<section class="center-wr" style="margin-top:150px;">
+
+    <form method="POST" action="/setting" enctype="multipart/form-data">
+        <label>Name:<input type="text" name="clientname" <% if(opt.name) { %> value="<%= opt.name %>" <% } %> required></label>
+        <br>
+        <label>Email:<input type="text" name="clientemail" <% if(opt.email) { %> value="<%= opt.email %>" <% } %> ></label>
+        <br>
+        <label>Description:<br><textarea name="description"><% if(opt.description) {%><%= opt.description %><%} %></textarea></label>
+        <br>
+         <label>Phone:<input type="text" name="phone" <% if(opt.phone) { %> value="<%= opt.phone %>" <% } %> ></label>
+        <br>
+         <label>Alternate Phone:<input type="text" name="alternatephone" <% if(opt.alternatephone) { %> value="<%= opt.alternatephone %>" <% } %> ></label>
+        <br>
+         <label>Skype:<input type="text" name="skype" <% if(opt.skype) { %> value="<%= opt.skype %>" <% } %> ></label>
+        <br>
+         <% if(opt.image) { %><img src="/<%= opt.image %>" style="width:155px;height: 100px;"/>  <% } %>
+         <input type="hidden" name="oldimage" <% if(opt.image) { %> value="<%= opt.image %>" <% } %>  >
+        <input type="file" name="userPhoto" id="" placeholder=""  style="border:none;width:100%;">
+        <br>
+        <label>Footer:<input type="text" name="footer" <% if(opt.footer) { %> value="<%= opt.footer %>" <% } %>  ></label>
+        <input type="submit" value="Submit">
+    </form>
+
+    </section>

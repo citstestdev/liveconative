@@ -1,0 +1,18 @@
+<%- include('./header') %>
+<% if(mag) { %> <%= mag %><% } %>
+
+<section class="center-wr" style="margin-top:150px;">
+    <h1><%= title %></h1>
+     <br>
+    <form method="POST" action="/serviceedit/<%= updatearr._id %>" enctype="multipart/form-data">
+        <label>Name:<input type="text" name="clientname" value="<%= updatearr.name %>" required></label>
+        <br>
+        <label>Description:<br><textarea name="description"><%= updatearr.description %></textarea></label>
+        <br>
+         <input type="hidden" name="oldimage" <% if(updatearr.image) { %> value="<%= updatearr.image %>" <% } %>>
+         <% if(updatearr.image) { %><img src="/<%= updatearr.image %>"/>  <% } %>
+        <input type="file" name="userPhoto" id="" placeholder=""  style="border:none;width:100%;">
+        <br>
+        <input type="submit" value="Update">
+    </form>
+</section>

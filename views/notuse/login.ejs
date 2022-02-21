@@ -1,0 +1,12 @@
+<% if(mag) { %> <%= mag %><% } %>
+
+<section class="center-wr" style="margin-top:150px;">
+    <h1><%= title %></h1>
+    <form method="POST" action="/checklogin">
+        <label>Username:<input type="text" name="email" required></label>
+        <br>
+        <label>Password:<input type="text" name="password" required></label>
+        <br>
+        <input type="submit" value="Login">
+    </form>
+</section>

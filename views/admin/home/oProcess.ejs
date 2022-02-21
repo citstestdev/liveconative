@@ -1,0 +1,26 @@
+<%- include('../../header') %>
+<% if(msg) { %> <%= msg %><% } %>
+<section class="center-wr" style="margin-top:77px;">
+<div class="row page-wraper">
+  <div class="col-md-12 full-content-wraper">
+    <div class="title-header"><h1 class="cmn-heading"><%= title.replace(/\w/, c => c.toUpperCase()) %></h1></div>
+    <div class="col-md-2  sidebar-menu">
+    <%- include('../../sidebar_common') %>
+    </div>
+     <div class="col-md-7 content-wraper"> 
+    <form method="POST" action="/process" class="common-form">
+        <label>Title:<input type="text" name="title" required></label>
+        <br>
+        <label>Name:<input type="text" name="name" required></label>
+        <br>
+        <label>Description:<br><textarea name="description"></textarea></label>
+        <br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+      </div>
+     <div class="col-md-2">
+      </div>
+  </div>
+</div>  
+</section>

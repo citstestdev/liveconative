@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Register</title>
+           <style>
+            .container.register_from {
+                width: 500px;
+                background-color: #ffffff;
+                padding: 4%;
+                margin-left: 38%;
+                border-radius: 30px;
+            }
+            .container.register_from input{
+               margin: 0px 0px 15px 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <section class="container register_from" style="margin-top:150px;">
+        <% if(typeof alert != 'undefined') { %>
+            <% alert.forEach(function(error) { %>
+                    <div class="alert alert-danger alertmsg" role="alert"><%= error.msg %></div>
+            <% }) %>
+        <% } %>
+        <div class="form">
+            <form action="/adduser" method="post">
+                 <img src="/uploads/2022-02-02T12:30:14.373Zconative-logo.svg"/>
+                <h2>Register</h2>
+                <div class="input-field">
+                    <input type="text" name="username" id="username" placeholder="Enter Username" value="">
+                </div>
+                <div class="input-field">
+                    <input type="text" name="email" id="email" placeholder="Enter Email">
+                </div>
+                <div class="input-field">
+                    <input type="password" name="password" id="password" placeholder="Enter Password">
+                </div>
+                <div class="input-field">
+                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Enter confirmPassword">
+                </div>
+                <input type="submit" value="Register">
+                <a style="float:right; color:#1a14ba" href="/admin">Login</a>
+            </form>
+        </div>
+        </section>
+    </body>
+</html>

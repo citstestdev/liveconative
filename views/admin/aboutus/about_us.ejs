@@ -1,0 +1,40 @@
+<style>
+td,th {
+    padding: 10px;
+}
+</style>
+<%- include('../../header') %>
+<section class="center-wr" style="margin-top:77px;">
+<div class="row page-wraper">
+  <div class="col-md-12 full-content-wraper">
+    <div class="title-header"><h1 class="cmn-heading"><%= title.replace(/\w/, c => c.toUpperCase()) %></h1></div>
+         <% if(msg) { %> <div style="background-color:#cfe7c0"><span class="cmn-message"><%= msg %></span></div><% } %>
+    <div class="col-md-2 sidebar-menu">
+    <%- include('../../sidebar_common') %>
+    </div>
+     <div class="col-md-5 content-wraper"> 
+
+        <form method="POST" action="/aboutus" enctype="multipart/form-data">
+          <input type="hidden" name="id" value="<% if (pagedata) { %><%= pagedata._id %> <% } %>">
+          <label>Name:<input type="text" name="title"  value="<% if (pagedata) { %><%= pagedata.title %> <% } %>" required></label>
+          <br>
+          <label>Description:<br><textarea name="description"><% if (pagedata) { %><%= pagedata.description %> <% } %></textarea></label>
+          <br>
+           <input type="hidden" name="oldimage"  value="<% if (pagedata) { %><%= pagedata.image %> <% } %>" >
+          <input type="file" name="userPhoto" id="" placeholder=""  style="border:none;width:100%;">
+          <br>
+          <input type="submit" value="Submit">
+        </form>
+
+     </div>
+     <div class="col-md-4 form-wraper">
+
+       <h3><% if (pagedata) { %><%= pagedata.title %> <% } %></h3>
+        <img src="<% if (pagedata) { %><%= pagedata.image %><% } %>" />
+       <br>
+       <% if (pagedata) { %><%= pagedata.description %><% } %>
+     </div>
+  </div>
+</div>
+
+</section>

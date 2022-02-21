@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="324" height="138" viewBox="0 0 324 138">
+    <defs>
+        <style>
+            .cls-6{fill:none}.cls-5{stroke:none}
+        </style>
+    </defs>
+    <g id="Slide_Product_Visuals" data-name="Slide Product Visuals" transform="translate(-948 -4863)">
+        <path id="Path_684" data-name="Path 684" d="M2990.5 4988s37.5-101.333 160.167-112" transform="translate(-2034 1)" style="stroke-width:2px;stroke:#707070;fill:none"/>
+        <g id="Ellipse_22" data-name="Ellipse 22" transform="translate(948 4985)" style="stroke:#f84525;fill:#fff;stroke-width:2px">
+            <circle class="cls-5" cx="8" cy="8" r="8"/>
+            <circle class="cls-6" cx="8" cy="8" r="7"/>
+        </g>
+        <g id="Ellipse_23" data-name="Ellipse 23" transform="translate(1114 4873)" style="fill:#707070;stroke:#707070">
+            <circle class="cls-5" cx="4" cy="4" r="4"/>
+            <circle class="cls-6" cx="4" cy="4" r="3.5"/>
+        </g>
+    </g>
+</svg>

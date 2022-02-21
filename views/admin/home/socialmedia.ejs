@@ -1,0 +1,64 @@
+<%- include('../../header') %>
+<style>
+td,th {
+    padding: 11px;
+}
+</style>
+<section class="center-wr" style="margin-top:77px;">
+<% if(locals.error) {%>
+    <div class="alert alert-danger" id="alertmsg" role="alert"><%= error %></div>
+<%}%>
+<div class="row page-wraper">
+  <div class="col-md-12 full-content-wraper">
+    <div class="title-header"><h1 class="cmn-heading"><%= title.replace(/\w/, c => c.toUpperCase()) %></h1></div>
+    <div class="col-md-2 sidebar-menu">
+    <%- include('../../sidebar_common') %>
+    </div>
+     <div class="col-md-6 content-wraper">
+     
+          <form method="POST" action="/social" enctype="multipart/form-data">
+              <label>Title:<input type="text" name="title"  required></label>
+              <br>
+              <label>Url:<input type="text" name="socialurl" required></label>
+              <br>
+              <label>Description:<br><textarea name="description"></textarea></label>
+              <br>
+              <input type="hidden" name="oldimage">
+              <input type="file" name="userPhoto" id="" placeholder=""  style="border:none;width:100%;" accept="image/*">
+              <br>
+              <input type="submit" value="Submit">
+          </form>
+
+      </div>
+     <div class="col-md-3 form-wraper">
+
+      <table border="2" cellspacing="5" cellpadding="5">
+      <tr>
+      <th>Name</th>
+      <th>Url</th>
+      <th>Edit</th>
+      <th>Delete</th>
+      </tr>
+      <% for(var person of pagedata) { %>
+         <tr>
+            <td> 
+            <%= person.title %>
+            </td>
+            <td> 
+            <%= person.socialurl %>
+            </td>
+            <td> 
+            <a href="/social/<%= person._id %>">Edit</a>
+            </td> 
+            <td> 
+            <a href="/socialremove/<%= person._id %>" title="X" class="delete" onclick="return confirm('Are you sure you want to delete this item')">X</a>
+            </td>
+            </tr>
+      <% } %>
+      </table>
+
+     </div>
+   </div>
+ </div>  
+
+</section>

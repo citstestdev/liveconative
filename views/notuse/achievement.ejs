@@ -1,0 +1,15 @@
+<%- include('./header') %>
+<% if(mag) { %> <%= mag %><% } %>
+
+<section class="center-wr" style="margin-top:150px;">
+    <h1><%= title %></h1>
+    <form method="POST" action="/addachivement">
+        <label>Title:<input type="text" name="title" required></label>
+        <br>
+        <label>Name:<input type="text" name="clientname" required></label>
+        <br>
+        <label>Description:<br><textarea name="description"></textarea></label>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</section>
