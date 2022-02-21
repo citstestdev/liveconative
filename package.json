@@ -22,6 +22,7 @@
     "express-validator": "^6.13.0",
     "froala-editor": "^4.0.9",
     "helmet": "^4.6.0",
+    "heroku": "^7.59.2",
     "http-errors": "~1.6.3",
     "joi": "^17.4.2",
     "jquery": "^3.6.0",
